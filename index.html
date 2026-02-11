@@ -1072,7 +1072,7 @@
 
             const W = 210;
             const H = 297;
-            const M = 12;
+            const M = 20;
             const CW = W - (M * 2);
             let Y = M;
 
@@ -1085,17 +1085,12 @@
 
             function smartNumbering(content) {
                 if (!content || !content.trim()) return '';
-
                 const lines = content.split('\n').filter(line => line.trim());
-                
                 const hasNumbering = /^\s*(\d+|[a-z]|[ivxlcdm]+)[\.\)]\s+/i.test(lines[0]);
-
                 if (hasNumbering) {
                     return lines.join('\n');
                 } else {
-                    return lines
-                        .map((line, idx) => `${idx + 1}. ${line.trim()}`)
-                        .join('\n');
+                    return lines.map((line, idx) => `${idx + 1}. ${line.trim()}`).join('\n');
                 }
             }
 
@@ -1108,141 +1103,181 @@
                 return false;
             }
 
-            function drawRow(label, value, h = 7) {
-                const lw = 35;
-                const vw = CW - lw;
+            function drawMinggu(value) {
+                const headerW = 30;
+                const contentW = CW - headerW;
+                
+                doc.setFillColor(0, 0, 0);
+                doc.rect(M, Y, headerW, 7, 'F');
+                doc.setTextColor(255, 255, 255);
+                doc.setFontSize(10);
+                doc.setFont(undefined, 'bold');
+                doc.text('MINGGU', M + 2, Y + 4.5);
+
+                doc.setDrawColor(0, 0, 0);
+                doc.setLineWidth(0.3);
+                doc.rect(M + headerW, Y, contentW, 7);
+                doc.setTextColor(0, 0, 0);
+                doc.setFont(undefined, 'normal');
+                doc.setFontSize(10);
+                doc.text(value, M + headerW + 2, Y + 4.5);
+
+                Y += 7;
+            }
+
+            function drawTarikhHari(tarikh, hari) {
+                const headerW1 = 30;
+                const contentW1 = (CW - headerW1) / 2;
+                const headerW2 = 20;
+                const contentW2 = (CW - headerW1 - contentW1 - headerW2);
+                
+                doc.setFillColor(0, 0, 0);
+                doc.rect(M, Y, headerW1, 7, 'F');
+                doc.setTextColor(255, 255, 255);
+                doc.setFontSize(10);
+                doc.setFont(undefined, 'bold');
+                doc.text('TARIKH', M + 2, Y + 4.5);
+
+                doc.setDrawColor(0, 0, 0);
+                doc.setLineWidth(0.3);
+                doc.rect(M + headerW1, Y, contentW1, 7);
+                doc.setTextColor(0, 0, 0);
+                doc.setFont(undefined, 'normal');
+                doc.setFontSize(10);
+                doc.text(tarikh, M + headerW1 + 2, Y + 4.5);
 
                 doc.setFillColor(0, 0, 0);
-                doc.rect(M, Y, lw, h, 'F');
+                doc.rect(M + headerW1 + contentW1, Y, headerW2, 7, 'F');
                 doc.setTextColor(255, 255, 255);
-                doc.setFontSize(9);
+                doc.setFont(undefined, 'bold');
+                doc.text('HARI', M + headerW1 + contentW1 + 2, Y + 4.5);
+
+                doc.rect(M + headerW1 + contentW1 + headerW2, Y, contentW2, 7);
+                doc.setTextColor(0, 0, 0);
+                doc.setFont(undefined, 'normal');
+                doc.text(hari, M + headerW1 + contentW1 + headerW2 + 2, Y + 4.5);
+
+                Y += 7;
+            }
+
+            function drawFullRow(label, value) {
+                const headerW = 30;
+                const contentW = CW - headerW;
+                
+                doc.setFillColor(0, 0, 0);
+                doc.rect(M, Y, headerW, 7, 'F');
+                doc.setTextColor(255, 255, 255);
+                doc.setFontSize(10);
                 doc.setFont(undefined, 'bold');
                 doc.text(label, M + 2, Y + 4.5);
 
                 doc.setDrawColor(0, 0, 0);
-                doc.setLineWidth(0.4);
-                doc.rect(M + lw, Y, vw, h, 'S');
+                doc.setLineWidth(0.3);
+                doc.rect(M + headerW, Y, contentW, 7);
                 doc.setTextColor(0, 0, 0);
                 doc.setFont(undefined, 'normal');
+                doc.setFontSize(10);
                 
-                const wrapped = doc.splitTextToSize(value, vw - 4);
-                doc.text(wrapped[0], M + lw + 2, Y + 4.5);
+                const wrapped = doc.splitTextToSize(value, contentW - 4);
+                doc.text(wrapped[0], M + headerW + 2, Y + 4.5);
 
-                Y += h;
+                Y += 7;
             }
 
-            function drawSplitRow(l1, v1, l2, v2, h = 7) {
-                const lw1 = 35;
-                const vw1 = 55;
-                const lw2 = 20;
-                const vw2 = CW - lw1 - vw1 - lw2;
-
-                doc.setFillColor(0, 0, 0);
-                doc.rect(M, Y, lw1, h, 'F');
-                doc.setTextColor(255, 255, 255);
-                doc.setFontSize(9);
-                doc.setFont(undefined, 'bold');
-                doc.text(l1, M + 2, Y + 4.5);
-
-                doc.setDrawColor(0, 0, 0);
-                doc.setLineWidth(0.4);
-                doc.rect(M + lw1, Y, vw1, h, 'S');
-                doc.setTextColor(0, 0, 0);
-                doc.setFont(undefined, 'normal');
-                doc.text(v1, M + lw1 + 2, Y + 4.5);
-
-                doc.setFillColor(0, 0, 0);
-                doc.rect(M + lw1 + vw1, Y, lw2, h, 'F');
-                doc.setTextColor(255, 255, 255);
-                doc.setFont(undefined, 'bold');
-                doc.text(l2, M + lw1 + vw1 + 2, Y + 4.5);
-
-                doc.rect(M + lw1 + vw1 + lw2, Y, vw2, h, 'S');
-                doc.setTextColor(0, 0, 0);
-                doc.setFont(undefined, 'normal');
-                doc.text(v2, M + lw1 + vw1 + lw2 + 2, Y + 4.5);
-
-                Y += h;
-            }
-
-            function drawSection(title, content) {
-                if (!content || !content.trim()) return;
+            // FIXED: Dynamic height calculation with proper overflow handling
+            function drawBigSection(title, content) {
+                if (!content || !content.trim()) {
+                    content = '';
+                }
 
                 const processedContent = smartNumbering(content);
-
-                doc.setFontSize(9);
+                doc.setFontSize(10);
                 const lines = doc.splitTextToSize(processedContent, CW - 6);
-                const lineH = 4.5;
-                const contentH = Math.max((lines.length * lineH) + 4, 15);
-                const headerH = 6;
+                const lineH = 5;
+                const headerH = 7;
+                
+                // Calculate exact height needed (padding included)
+                const contentH = (lines.length * lineH) + 8;
 
+                // Check if we need a page break BEFORE drawing header
                 needsPageBreak(headerH + contentH);
 
+                // Draw header
                 doc.setFillColor(0, 0, 0);
                 doc.rect(M, Y, CW, headerH, 'F');
                 doc.setTextColor(255, 255, 255);
-                doc.setFontSize(9);
+                doc.setFontSize(10);
                 doc.setFont(undefined, 'bold');
-                doc.text(title, M + 2, Y + 4);
+                doc.text(title, M + 2, Y + 5);
 
                 Y += headerH;
 
+                // Draw content box with EXACT calculated height
                 doc.setDrawColor(0, 0, 0);
-                doc.setLineWidth(0.4);
-                doc.rect(M, Y, CW, contentH, 'S');
+                doc.setLineWidth(0.3);
+                doc.rect(M, Y, CW, contentH);
 
                 doc.setTextColor(0, 0, 0);
-                doc.setFontSize(9);
+                doc.setFontSize(10);
                 doc.setFont(undefined, 'normal');
                 
-                let textY = Y + 4;
+                let textY = Y + 5;
                 for (let i = 0; i < lines.length; i++) {
-                    if (textY > H - M - 4) {
+                    // Check if current line would overflow page
+                    if (textY + lineH > H - M) {
+                        // Add new page and reset Y position
                         doc.addPage();
                         Y = M;
-                        textY = Y + 4;
-                        doc.rect(M, Y, CW, contentH - (i * lineH), 'S');
+                        textY = Y + 5;
+                        
+                        // Draw continuation box on new page
+                        const remainingLines = lines.length - i;
+                        const remainingHeight = (remainingLines * lineH) + 8;
+                        doc.rect(M, Y, CW, remainingHeight);
                     }
+                    
                     doc.text(lines[i], M + 3, textY);
                     textY += lineH;
                 }
 
-                Y += contentH + 2;
+                // Move Y to end of content box
+                Y += contentH;
             }
 
-            drawRow('MINGGU', data.minggu);
-            drawSplitRow('TARIKH', formattedDate, 'HARI', data.hari);
-            drawRow('LOKASI', data.lokasi);
-            drawRow('TAJUK', data.tajuk);
+            // Draw all sections
+            drawMinggu(data.minggu);
+            drawTarikhHari(formattedDate, data.hari);
+            drawFullRow('LOKASI', data.lokasi);
+            drawFullRow('TAJUK', data.tajuk);
 
-            Y += 3;
+            // Big sections with DYNAMIC heights
+            drawBigSection('OBJEKTIF', data.objektif);
+            drawBigSection('PERALATAN', data.peralatan);
+            drawBigSection('PROSEDUR', data.prosedur);
+            drawBigSection('MASALAH', data.masalah);
+            drawBigSection('PENYELESAIAN', data.penyelesaian);
+            drawBigSection('KESIMPULAN', data.kesimpulan);
 
-            drawSection('OBJEKTIF', data.objektif);
-            drawSection('PERALATAN', data.peralatan);
-            drawSection('PROSEDUR', data.prosedur);
-            drawSection('MASALAH', data.masalah);
-            drawSection('PENYELESAIAN', data.penyelesaian);
-            drawSection('KESIMPULAN', data.kesimpulan);
-
+            // Images section
             if (imgs.length > 0) {
-                needsPageBreak(60);
+                needsPageBreak(100);
 
                 doc.setFillColor(0, 0, 0);
-                doc.rect(M, Y, CW, 6, 'F');
+                doc.rect(M, Y, CW, 7, 'F');
                 doc.setTextColor(255, 255, 255);
-                doc.setFontSize(9);
+                doc.setFontSize(10);
                 doc.setFont(undefined, 'bold');
-                doc.text('GAMBAR', M + 2, Y + 4);
+                doc.text('GAMBAR', M + 2, Y + 5);
 
-                Y += 9;
+                Y += 10;
 
-                const imgW = (CW - 8) / 2;
-                const imgH = imgW * 0.7;
+                const imgW = (CW - 10) / 2;
+                const imgH = imgW * 0.75;
                 let x = M;
                 let count = 0;
 
                 for (let i = 0; i < imgs.length; i++) {
-                    if (needsPageBreak(imgH + 10)) {
+                    if (needsPageBreak(imgH + 15)) {
                         x = M;
                         count = 0;
                     }
@@ -1250,27 +1285,27 @@
                     try {
                         doc.addImage(imgs[i], 'JPEG', x, Y, imgW, imgH);
                         doc.setDrawColor(0, 0, 0);
-                        doc.setLineWidth(0.4);
-                        doc.rect(x, Y, imgW, imgH, 'S');
+                        doc.setLineWidth(0.3);
+                        doc.rect(x, Y, imgW, imgH);
                         
-                        doc.setFontSize(8);
+                        doc.setFontSize(9);
                         doc.setTextColor(0, 0, 0);
-                        doc.text(`Gambar ${i + 1}`, x + imgW / 2, Y + imgH + 4, { align: 'center' });
+                        doc.text(`Gambar ${i + 1}`, x + imgW / 2, Y + imgH + 5, { align: 'center' });
                     } catch (e) {
                         console.error('Image error:', e);
                     }
 
                     count++;
                     if (count % 2 === 0) {
-                        Y += imgH + 8;
+                        Y += imgH + 10;
                         x = M;
                     } else {
-                        x += imgW + 8;
+                        x += imgW + 10;
                     }
                 }
 
                 if (count % 2 !== 0) {
-                    Y += imgH + 8;
+                    Y += imgH + 10;
                 }
             }
 
