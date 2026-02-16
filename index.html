@@ -323,6 +323,7 @@
             letter-spacing: 0.5px;
         }
 
+        /* 16px minimum to prevent iOS Safari zoom on input focus */
         input[type="text"],
         input[type="date"],
         textarea {
@@ -331,7 +332,7 @@
             border: 2px solid #ddd;
             border-radius: 6px;
             font-family: Arial, sans-serif;
-            font-size: 14px;
+            font-size: 16px;
             background: white;
             transition: all 0.3s;
         }
@@ -761,6 +762,7 @@
             display: block;
         }
 
+        /* 16px to prevent iPhone zoom on focus */
         #auth-screen input[type="email"],
         #auth-screen input[type="password"],
         #auth-screen input[type="text"] {
@@ -768,7 +770,7 @@
             padding: 12px;
             border: 2px solid #ddd;
             border-radius: 8px;
-            font-size: 14px;
+            font-size: 16px;
             margin-bottom: 14px;
         }
 
@@ -1030,6 +1032,16 @@
             display: none;
         }
 
+        .data-tip {
+            margin-top: 20px;
+            padding: 12px;
+            background: #f0f4ff;
+            border-radius: 8px;
+            font-size: 12px;
+            color: #4b5563;
+            line-height: 1.5;
+        }
+
         /* Tablet Specific (iPad etc) */
         @media (min-width: 769px) and (max-width: 1024px) {
             .container {
@@ -1060,7 +1072,7 @@
             input[type="date"],
             textarea {
                 padding: 10px;
-                font-size: 13px;
+                font-size: 16px;
             }
 
             button[type="submit"] {
@@ -1115,6 +1127,7 @@
             </div>
             <button type="submit" class="btn-register">Daftar</button>
         </form>
+        <p class="data-tip">💡 Data disimpan dalam peranti ini sahaja. Untuk log masuk & data dari mana-mana peranti, perlukan server + pangkalan data (cth. MySQL/PHP).</p>
     </div>
 
     <!-- Forgot Password Modal -->
