@@ -1736,12 +1736,45 @@
             updateGallery();
         }
 
+        function validateLogbookForm() {
+            const fields = [
+                { id: 'minggu', label: 'MINGGU' },
+                { id: 'lokasi', label: 'LOKASI' },
+                { id: 'tarikh', label: 'TARIKH' },
+                { id: 'hari', label: 'HARI' },
+                { id: 'tajuk', label: 'TAJUK' },
+                { id: 'objektif', label: 'OBJEKTIF' },
+                { id: 'peralatan', label: 'PERALATAN' },
+                { id: 'prosedur', label: 'PROSEDUR' },
+                { id: 'masalah', label: 'MASALAH' },
+                { id: 'penyelesaian', label: 'PENYELESAIAN' },
+                { id: 'kesimpulan', label: 'KESIMPULAN' }
+            ];
+            const empty = [];
+            for (let i = 0; i < fields.length; i++) {
+                const el = document.getElementById(fields[i].id);
+                const val = el ? (el.value || '').trim() : '';
+                if (!val) empty.push(fields[i].label);
+            }
+            if (empty.length > 0) {
+                return { ok: false, message: 'Sila isi semua ruangan wajib: ' + empty.join(', ') };
+            }
+            return { ok: true };
+        }
+
         document.getElementById('mainForm').addEventListener('submit', async function(e) {
             e.preventDefault();
 
-            const btn = document.getElementById('submitBtn');
             const status = document.getElementById('statusMsg');
-            
+            const valid = validateLogbookForm();
+            if (!valid.ok) {
+                status.className = 'status error';
+                status.textContent = '❌ ' + valid.message;
+                status.style.display = 'block';
+                return;
+            }
+
+            const btn = document.getElementById('submitBtn');
             btn.disabled = true;
             btn.innerHTML = '<span class="spinner"></span>Sedang menjana PDF...';
             status.style.display = 'none';
@@ -1806,6 +1839,14 @@
 
         // Simpan sahaja (tanpa PDF) - simpan sebagai entri baru atau kemas kini jika sedang edit
         document.getElementById('btnSaveOnly').addEventListener('click', function() {
+            const valid = validateLogbookForm();
+            if (!valid.ok) {
+                const status = document.getElementById('statusMsg');
+                status.className = 'status error';
+                status.textContent = '❌ ' + valid.message;
+                status.style.display = 'block';
+                return;
+            }
             const data = {
                 minggu: document.getElementById('minggu').value,
                 tarikh: document.getElementById('tarikh').value,
@@ -1835,6 +1876,9 @@
         });
 
         async function generatePDF(data, imgs, opts) {
+            if (!window.jspdf || !window.jspdf.jsPDF) {
+                throw new Error('Pustaka PDF tidak dimuat. Sila semak sambungan internet dan muat semula halaman.');
+            }
             const { jsPDF } = window.jspdf;
             const isAppend = opts && opts.doc;
             const doc = isAppend ? opts.doc : new jsPDF('p', 'mm', 'a4');
