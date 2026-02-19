@@ -1094,7 +1094,7 @@
 
     <!-- LOGIN / REGISTER SCREEN -->
     <div id="auth-screen">
-        <h1>📘 POLI LOGBOOK</h1>
+        <h1>Poli Logbook</h1>
         <p class="subtitle">Log masuk</p>
         <div class="auth-tabs">
             <button type="button" class="auth-tab active" data-tab="login">Log Masuk</button>
@@ -1127,14 +1127,14 @@
             </div>
             <button type="submit" class="btn-register">Daftar</button>
         </form>
-        <p class="data-tip">Data simpan dalam peranti ni je.</p>
+        <p class="data-tip">Simpan dalam fon je.</p>
     </div>
 
     <!-- Forgot Password Modal -->
     <div class="modal-overlay" id="forgotPasswordModal" onclick="if(event.target===this) closeForgotModal()">
         <div class="modal-overlay-content auth-modal-size" onclick="event.stopPropagation()">
-            <h3 class="modal-title">Reset kata laluan</h3>
-            <p class="modal-subtitle">Taip emel dengan kata laluan baharu. Tak ada e-mel dihantar</p>
+            <h3 class="modal-title">Lupa password</h3>
+            <p class="modal-subtitle">Emel + kata laluan baharu. Simpan dalam fon je.</p>
             <form id="forgotPasswordForm">
                 <div class="form-group">
                     <label>Emel</label>
@@ -1148,7 +1148,7 @@
                     <label>Ulang kata laluan</label>
                     <input type="password" id="forgotConfirmPassword" placeholder="Taip semula" required minlength="6">
                 </div>
-                <button type="submit" class="btn-login">Tukar kata laluan & tutup</button>
+                <button type="submit" class="btn-login">Ok</button>
                 <button type="button" class="modal-close" style="margin-top:10px" onclick="closeForgotModal()">Batal</button>
             </form>
         </div>
@@ -1164,9 +1164,9 @@
 
         <!-- Saved entries list -->
         <div class="saved-entries" id="savedEntriesBox" style="display: none;">
-            <h3>📋 Entri yang dah disimpan</h3>
-            <p class="book-desc">PDF ikut entri, atau jana satu laporan bulanan.</p>
-            <button type="button" class="btn-full-book" id="btnFullBook">Jana laporan bulanan (satu PDF, ada refleksi tiap minggu)</button>
+            <h3>Entri disimpan</h3>
+            <p class="book-desc">Download PDF satu entri, atau jana laporan bulanan sekali.</p>
+            <button type="button" class="btn-full-book" id="btnFullBook">Laporan bulanan satu PDF</button>
             <div id="savedEntriesList"></div>
         </div>
 
@@ -1174,7 +1174,7 @@
     <div class="support-banner">
         <div class="support-text">
             <span class="emoji">❤️</span>
-            <span>Buku log generator ni berguna?</span>
+            <span>Berguna?</span>
         </div>
         <div class="support-buttons">
             <button class="btn-donate" onclick="openDonationModal()">
@@ -1192,15 +1192,15 @@
             <div class="modal-emoji">
                 <img src="hamster-coffee.png" alt="hamster coffee" onerror="this.style.display='none'">
             </div>
-            <h2 class="modal-title">Belanja kopi ☕</h2>
-            <p class="modal-subtitle">Kalau suka, boleh belanja kopi – saya boleh tambah lagi function next time.</p>
+            <h2 class="modal-title">Belanja kopi</h2>
+            <p class="modal-subtitle">Suka? Boleh belanja kopi.</p>
             
             <div class="qr-container" onclick="openFullscreenQR()">
                 <img id="qrImage" src="duitnow-qr.png" alt="DuitNow QR" onerror="this.alt='QR Code tidak tersedia'">
             </div>
             
-            <p class="qr-hint">Scan guna kamera fon atau app bayaran</p>
-            <a class="qr-link" onclick="openFullscreenQR()">Klik QR untuk nampak besar</a>
+            <p class="qr-hint">Scan je</p>
+            <a class="qr-link" onclick="openFullscreenQR()">Klik buat besar</a>
             
             <button class="modal-close" onclick="closeDonationModal()">Tutup</button>
         </div>
@@ -1215,22 +1215,21 @@
     </div>
 
     <div class="container">
-        <h1>📘 POLI LOGBOOK GENERATOR</h1>
+        <h1>Poli Logbook</h1>
         
         <div class="info-banner">
-            <strong>Jana buku log terus jadi PDF</strong>
-            <small>Isi form, tekan generate – siap</small>
+            <strong>Buku log → PDF</strong>
         </div>
 
         <form id="mainForm">
             <div class="row-2">
                 <div class="form-group">
                     <label>MINGGU <span class="required-mark">*</span></label>
-                    <input type="text" id="minggu" placeholder="Contoh: MINGGU 1" required>
+                    <input type="text" id="minggu" placeholder="MINGGU 1" required>
                 </div>
                 <div class="form-group">
                     <label>LOKASI <span class="required-mark">*</span></label>
-                    <input type="text" id="lokasi" placeholder="Contoh: WORKSHOP" required>
+                    <input type="text" id="lokasi" placeholder="WORKSHOP" required>
                 </div>
             </div>
 
@@ -1241,13 +1240,13 @@
                 </div>
                 <div class="form-group">
                     <label>HARI <span class="required-mark">*</span></label>
-                    <input type="text" id="hari" placeholder="Contoh: ISNIN" required>
+                    <input type="text" id="hari" placeholder="ISNIN" required>
                 </div>
             </div>
 
             <div class="form-group">
                 <label>TAJUK <span class="required-mark">*</span></label>
-                <input type="text" id="tajuk" placeholder="Tajuk aktiviti" required>
+                <input type="text" id="tajuk" placeholder="Tajuk" required>
             </div>
 
             <div class="form-group">
@@ -1255,7 +1254,7 @@
                     OBJEKTIF <span class="required-mark">*</span>
                     <span class="feature-badge">Auto no.</span>
                 </label>
-                <textarea id="objektif" rows="5" placeholder="Taip point by point, nanti auto nombor" required></textarea>
+                <textarea id="objektif" rows="5" placeholder="Satu line satu point" required></textarea>
             </div>
 
             <div class="form-group">
@@ -1263,7 +1262,7 @@
                     PERALATAN <span class="required-mark">*</span>
                     <span class="feature-badge">Auto no.</span>
                 </label>
-                <textarea id="peralatan" rows="4" placeholder="Taip point by point, nanti auto nombor" required></textarea>
+                <textarea id="peralatan" rows="4" placeholder="Satu line satu point" required></textarea>
             </div>
 
             <div class="form-group">
@@ -1271,7 +1270,7 @@
                     PROSEDUR <span class="required-mark">*</span>
                     <span class="feature-badge">Auto no.</span>
                 </label>
-                <textarea id="prosedur" rows="12" placeholder="Taip point by point, nanti auto nombor" required></textarea>
+                <textarea id="prosedur" rows="12" placeholder="Satu line satu point" required></textarea>
             </div>
 
             <div class="form-group">
@@ -1279,7 +1278,7 @@
                     MASALAH <span class="required-mark">*</span>
                     <span class="feature-badge">Auto no.</span>
                 </label>
-                <textarea id="masalah" rows="4" placeholder="Taip point by point, nanti auto nombor" required></textarea>
+                <textarea id="masalah" rows="4" placeholder="Satu line satu point" required></textarea>
             </div>
 
             <div class="form-group">
@@ -1287,7 +1286,7 @@
                     PENYELESAIAN <span class="required-mark">*</span>
                     <span class="feature-badge">Auto no.</span>
                 </label>
-                <textarea id="penyelesaian" rows="4" placeholder="Taip point by point, nanti auto nombor" required></textarea>
+                <textarea id="penyelesaian" rows="4" placeholder="Satu line satu point" required></textarea>
             </div>
 
             <div class="form-group">
@@ -1295,13 +1294,13 @@
                     KESIMPULAN <span class="required-mark">*</span>
                     <span class="feature-badge">Auto no.</span>
                 </label>
-                <textarea id="kesimpulan" rows="5" placeholder="Taip point by point, nanti auto nombor" required></textarea>
+                <textarea id="kesimpulan" rows="5" placeholder="Satu line satu point" required></textarea>
             </div>
 
             <div class="image-drop-zone" id="dropZone">
                 <div class="drop-icon">📸</div>
-                <div class="drop-text">Seret gambar sini atau klik pilih</div>
-                <div class="drop-subtext">JPG, PNG sahaja</div>
+                <div class="drop-text">Letak gambar sini</div>
+                <div class="drop-subtext">JPG / PNG</div>
             </div>
             <input type="file" id="fileInput" accept="image/*" multiple>
 
@@ -1497,7 +1496,7 @@
             renderSavedEntries();
             const status = document.getElementById('statusMsg');
             status.className = 'status success';
-            status.textContent = 'Perubahan dah disimpan.';
+            status.textContent = 'Dah simpan.';
             status.style.display = 'block';
             setTimeout(() => { status.style.display = 'none'; }, 2500);
         });
@@ -1538,7 +1537,7 @@
             const users = getUsers();
             const user = users.find(u => u.email.toLowerCase() === email.toLowerCase() && u.password === password);
             if (!user) {
-                alert('Emel atau kata laluan tak betul.');
+                alert('Emel / password salah.');
                 return;
             }
             setCurrentUser({ email: user.email, name: user.name });
@@ -1551,12 +1550,12 @@
             const email = document.getElementById('registerEmail').value.trim();
             const password = document.getElementById('registerPassword').value;
             if (password.length < 6) {
-                alert('Kata laluan kena sekurang-kurangnya 6 huruf.');
+                alert('Min 6 huruf.');
                 return;
             }
             const users = getUsers();
             if (users.some(u => u.email.toLowerCase() === email.toLowerCase())) {
-                alert('Emel ni dah ada. Log masuk je.');
+                alert('Dah ada. Log masuk je.');
                 return;
             }
             users.push({ email, name, password });
@@ -1586,22 +1585,22 @@
             const newPass = document.getElementById('forgotNewPassword').value;
             const confirmPass = document.getElementById('forgotConfirmPassword').value;
             if (newPass !== confirmPass) {
-                alert('Kata laluan baharu dengan ulang tak sama.');
+                alert('Password tak sama.');
                 return;
             }
             if (newPass.length < 6) {
-                alert('Kata laluan kena sekurang-kurangnya 6 huruf.');
+                alert('Min 6 huruf.');
                 return;
             }
             const users = getUsers();
             const idx = users.findIndex(u => u.email.toLowerCase() === email.toLowerCase());
             if (idx === -1) {
-                alert('Emel tak jumpa. Daftar dulu atau check ejaan.');
+                alert('Tak jumpa. Daftar dulu.');
                 return;
             }
             users[idx].password = newPass;
             saveUsers(users);
-            alert('Kata laluan dah ditukar. Log masuk balik dengan kata laluan baharu.');
+            alert('Dah tukar. Log masuk balik.');
             closeForgotModal();
             this.reset();
         });
@@ -1610,20 +1609,20 @@
         document.getElementById('btnFullBook').addEventListener('click', async function() {
             const entries = getEntries();
             if (entries.length === 0) {
-                alert('Belum ada entri. Simpan entri dulu.');
+                alert('Tak ada entri lagi.');
                 return;
             }
             this.disabled = true;
             this.textContent = 'Jana PDF...';
             try {
                 await generatePDFBookByWeek(entries);
-                alert('Laporan bulanan dah download – satu PDF dengan refleksi tiap minggu.');
+                alert('Dah download.');
             } catch (err) {
                 console.error(err);
                 alert('Error: ' + err.message);
             }
             this.disabled = false;
-            this.textContent = 'Jana laporan bulanan (satu PDF, ada refleksi tiap minggu)';
+            this.textContent = 'Laporan bulanan satu PDF';
         });
 
         // Show/hide app based on login
@@ -1713,7 +1712,7 @@
                     };
                     reader.readAsDataURL(file);
                 } else {
-                    alert('Kena pilih gambar je – JPG atau PNG.');
+                    alert('Gambar je. JPG/PNG.');
                 }
             });
         }
@@ -1757,7 +1756,7 @@
                 if (!val) empty.push(fields[i].label);
             }
             if (empty.length > 0) {
-                return { ok: false, message: 'Isi dulu: ' + empty.join(', ') };
+                return { ok: false, message: 'Isi: ' + empty.join(', ') };
             }
             return { ok: true };
         }
@@ -1807,11 +1806,11 @@
                 renderSavedEntries();
 
                 status.className = 'status success';
-                status.textContent = 'PDF dah siap & dah disimpan.';
+                status.textContent = 'Dah siap.';
                 status.style.display = 'block';
 
                 setTimeout(() => {
-                    if (confirm('PDF dah download. Nak kosongkan form untuk isi entri baru?')) {
+                    if (confirm('Nak kosongkan form?')) {
                         this.reset();
                         images = [];
                         updateGallery();
@@ -1829,7 +1828,7 @@
             } catch (err) {
                 console.error('Error:', err);
                 status.className = 'status error';
-                status.textContent = 'Tak jadi: ' + err.message;
+                status.textContent = err.message;
                 status.style.display = 'block';
             } finally {
                 btn.disabled = false;
@@ -2245,4 +2244,3 @@
     </script>
 </body>
 </html>
-
