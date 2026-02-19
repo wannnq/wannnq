@@ -323,7 +323,6 @@
             letter-spacing: 0.5px;
         }
 
-        /* 16px minimum to prevent iOS Safari zoom on input focus */
         input[type="text"],
         input[type="date"],
         textarea {
@@ -332,7 +331,7 @@
             border: 2px solid #ddd;
             border-radius: 6px;
             font-family: Arial, sans-serif;
-            font-size: 16px;
+            font-size: 14px;
             background: white;
             transition: all 0.3s;
         }
@@ -706,342 +705,6 @@
             }
         }
 
-        /* ========== LOGIN / REGISTER SCREEN ========== */
-        #auth-screen {
-            max-width: 420px;
-            margin: 50px auto;
-            background: white;
-            padding: 40px;
-            border-radius: 16px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
-        }
-
-        #auth-screen h1 {
-            font-size: 22px;
-            margin-bottom: 8px;
-        }
-
-        #auth-screen .subtitle {
-            margin-bottom: 24px;
-        }
-
-        .auth-tabs {
-            display: flex;
-            gap: 0;
-            margin-bottom: 24px;
-            border-bottom: 2px solid #e5e7eb;
-        }
-
-        .auth-tab {
-            flex: 1;
-            padding: 12px;
-            border: none;
-            background: none;
-            font-weight: 600;
-            font-size: 14px;
-            color: #6b7280;
-            cursor: pointer;
-            transition: all 0.2s;
-        }
-
-        .auth-tab.active {
-            color: #667eea;
-            border-bottom: 2px solid #667eea;
-            margin-bottom: -2px;
-        }
-
-        .auth-tab:hover:not(.active) {
-            color: #333;
-        }
-
-        .auth-form {
-            display: none;
-        }
-
-        .auth-form.active {
-            display: block;
-        }
-
-        /* 16px to prevent iPhone zoom on focus */
-        #auth-screen input[type="email"],
-        #auth-screen input[type="password"],
-        #auth-screen input[type="text"] {
-            width: 100%;
-            padding: 12px;
-            border: 2px solid #ddd;
-            border-radius: 8px;
-            font-size: 16px;
-            margin-bottom: 14px;
-        }
-
-        .btn-login, .btn-register {
-            width: 100%;
-            padding: 14px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            border: none;
-            border-radius: 8px;
-            font-weight: 600;
-            font-size: 15px;
-            cursor: pointer;
-            margin-top: 8px;
-        }
-
-        .btn-login:hover, .btn-register:hover {
-            opacity: 0.95;
-            transform: translateY(-1px);
-        }
-
-        .forgot-link {
-            text-align: center;
-            margin-top: 12px;
-            font-size: 13px;
-        }
-
-        .forgot-link a {
-            color: #667eea;
-            text-decoration: none;
-        }
-
-        .forgot-link a:hover {
-            text-decoration: underline;
-        }
-
-        .auth-modal-size {
-            max-width: 420px;
-            width: 90%;
-            background: white;
-            border-radius: 16px;
-            padding: 30px;
-        }
-
-        #forgotPasswordModal {
-            display: none;
-            align-items: center;
-            justify-content: center;
-        }
-
-        #forgotPasswordModal.active {
-            display: flex;
-        }
-
-        .user-bar {
-            max-width: 900px;
-            margin: 0 auto 15px;
-            background: white;
-            padding: 12px 20px;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-
-        .user-bar .user-info {
-            font-size: 14px;
-            color: #374151;
-        }
-
-        .user-bar .user-info strong {
-            color: #667eea;
-        }
-
-        .btn-logout {
-            padding: 8px 16px;
-            background: #ef4444;
-            color: white;
-            border: none;
-            border-radius: 8px;
-            font-weight: 600;
-            font-size: 13px;
-            cursor: pointer;
-            transition: all 0.2s;
-        }
-
-        .btn-logout:hover {
-            background: #dc2626;
-        }
-
-        .saved-entries {
-            max-width: 900px;
-            margin: 0 auto 20px;
-            background: white;
-            padding: 20px;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
-        }
-
-        .saved-entries h3 {
-            font-size: 16px;
-            margin-bottom: 12px;
-            color: #333;
-        }
-
-        .book-desc {
-            font-size: 13px;
-            color: #6b7280;
-            margin-bottom: 12px;
-        }
-
-        .btn-full-book {
-            width: 100%;
-            padding: 12px;
-            margin-bottom: 16px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            border: none;
-            border-radius: 8px;
-            font-weight: 600;
-            font-size: 14px;
-            cursor: pointer;
-            transition: all 0.2s;
-        }
-
-        .btn-full-book:hover {
-            opacity: 0.95;
-            transform: translateY(-1px);
-        }
-
-        #savedEntriesList {
-            max-height: 320px;
-            overflow-y: auto;
-            overflow-x: hidden;
-        }
-
-        #savedEntriesList::-webkit-scrollbar {
-            width: 8px;
-        }
-
-        #savedEntriesList::-webkit-scrollbar-track {
-            background: #f1f1f1;
-            border-radius: 4px;
-        }
-
-        #savedEntriesList::-webkit-scrollbar-thumb {
-            background: #667eea;
-            border-radius: 4px;
-        }
-
-        #savedEntriesList::-webkit-scrollbar-thumb:hover {
-            background: #764ba2;
-        }
-
-        .entry-card {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 12px 16px;
-            background: #f9fafb;
-            border-radius: 8px;
-            margin-bottom: 8px;
-            border: 1px solid #e5e7eb;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-
-        .entry-card:last-child {
-            margin-bottom: 0;
-        }
-
-        .entry-card span {
-            font-size: 14px;
-            color: #374151;
-        }
-
-        .entry-card .entry-actions {
-            display: flex;
-            gap: 8px;
-        }
-
-        .entry-card .btn-small {
-            padding: 6px 12px;
-            border: none;
-            border-radius: 6px;
-            font-size: 12px;
-            font-weight: 600;
-            cursor: pointer;
-        }
-
-        .btn-load {
-            background: #667eea;
-            color: white;
-        }
-
-        .btn-pdf {
-            background: #10b981;
-            color: white;
-        }
-
-        .btn-delete {
-            background: #ef4444;
-            color: white;
-        }
-
-        .btn-save-only {
-            width: 100%;
-            padding: 14px;
-            margin-top: 10px;
-            background: #f3f4f6;
-            color: #374151;
-            border: 2px solid #e5e7eb;
-            border-radius: 8px;
-            font-size: 15px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.2s;
-        }
-
-        .btn-save-only:hover {
-            background: #e5e7eb;
-            border-color: #667eea;
-            color: #667eea;
-        }
-
-        .save-changes-wrap {
-            margin-top: 12px;
-        }
-
-        .btn-save-changes {
-            width: 100%;
-            padding: 14px;
-            background: #059669;
-            color: white;
-            border: none;
-            border-radius: 8px;
-            font-weight: 600;
-            font-size: 15px;
-            cursor: pointer;
-            transition: all 0.2s;
-        }
-
-        .btn-save-changes:hover {
-            background: #047857;
-        }
-
-        .main-app-wrap {
-            display: none;
-        }
-
-        .main-app-wrap.active {
-            display: block;
-        }
-
-        #auth-screen.hidden {
-            display: none;
-        }
-
-        .data-tip {
-            margin-top: 20px;
-            padding: 12px;
-            background: #f0f4ff;
-            border-radius: 8px;
-            font-size: 12px;
-            color: #4b5563;
-            line-height: 1.5;
-        }
-
         /* Tablet Specific (iPad etc) */
         @media (min-width: 769px) and (max-width: 1024px) {
             .container {
@@ -1072,7 +735,7 @@
             input[type="date"],
             textarea {
                 padding: 10px;
-                font-size: 16px;
+                font-size: 13px;
             }
 
             button[type="submit"] {
@@ -1092,96 +755,18 @@
 </head>
 <body>
 
-    <!-- LOGIN / REGISTER SCREEN -->
-    <div id="auth-screen">
-        <h1>Poli Logbook</h1>
-        <p class="subtitle">Log masuk</p>
-        <div class="auth-tabs">
-            <button type="button" class="auth-tab active" data-tab="login">Log Masuk</button>
-            <button type="button" class="auth-tab" data-tab="register">Daftar</button>
-        </div>
-        <form id="loginForm" class="auth-form active">
-            <div class="form-group">
-                <label>Emel</label>
-                <input type="email" id="loginEmail" placeholder="contoh@email.com" required>
-            </div>
-            <div class="form-group">
-                <label>Kata Laluan</label>
-                <input type="password" id="loginPassword" placeholder="••••••••" required>
-            </div>
-            <button type="submit" class="btn-login">Log Masuk</button>
-            <p class="forgot-link"><a href="#" id="linkForgotPassword">Lupa kata laluan?</a></p>
-        </form>
-        <form id="registerForm" class="auth-form">
-            <div class="form-group">
-                <label>Nama</label>
-                <input type="text" id="registerName" placeholder="Nama" required>
-            </div>
-            <div class="form-group">
-                <label>Emel</label>
-                <input type="email" id="registerEmail" placeholder="contoh@email.com" required>
-            </div>
-            <div class="form-group">
-                <label>Kata Laluan</label>
-                <input type="password" id="registerPassword" placeholder="Min 6 huruf" required minlength="6">
-            </div>
-            <button type="submit" class="btn-register">Daftar</button>
-        </form>
-        <p class="data-tip">Simpan dalam fon je.</p>
-    </div>
-
-    <!-- Forgot Password Modal -->
-    <div class="modal-overlay" id="forgotPasswordModal" onclick="if(event.target===this) closeForgotModal()">
-        <div class="modal-overlay-content auth-modal-size" onclick="event.stopPropagation()">
-            <h3 class="modal-title">Lupa password</h3>
-            <p class="modal-subtitle">Emel + kata laluan baharu. Simpan dalam fon je.</p>
-            <form id="forgotPasswordForm">
-                <div class="form-group">
-                    <label>Emel</label>
-                    <input type="email" id="forgotEmail" placeholder="contoh@email.com" required>
-                </div>
-                <div class="form-group">
-                    <label>Kata laluan baharu</label>
-                    <input type="password" id="forgotNewPassword" placeholder="Min 6 huruf" required minlength="6">
-                </div>
-                <div class="form-group">
-                    <label>Ulang kata laluan</label>
-                    <input type="password" id="forgotConfirmPassword" placeholder="Taip semula" required minlength="6">
-                </div>
-                <button type="submit" class="btn-login">Ok</button>
-                <button type="button" class="modal-close" style="margin-top:10px" onclick="closeForgotModal()">Batal</button>
-            </form>
-        </div>
-    </div>
-
-    <!-- MAIN APP (after login) -->
-    <div class="main-app-wrap" id="mainApp">
-        <!-- User bar -->
-        <div class="user-bar">
-            <span class="user-info">👤 <strong id="currentUserName"></strong> (<span id="currentUserEmail"></span>)</span>
-            <button type="button" class="btn-logout" id="btnLogout">Keluar</button>
-        </div>
-
-        <!-- Saved entries list -->
-        <div class="saved-entries" id="savedEntriesBox" style="display: none;">
-            <h3>Entri disimpan</h3>
-            <p class="book-desc">Download PDF satu entri, atau jana laporan bulanan sekali.</p>
-            <button type="button" class="btn-full-book" id="btnFullBook">Laporan bulanan satu PDF</button>
-            <div id="savedEntriesList"></div>
-        </div>
-
     <!-- Support Banner -->
     <div class="support-banner">
         <div class="support-text">
             <span class="emoji">❤️</span>
-            <span>Berguna?</span>
+            <span>Suka Buku Log Generator ini?</span>
         </div>
         <div class="support-buttons">
             <button class="btn-donate" onclick="openDonationModal()">
-                DuitNow QR
+                🎁 Donate via DuitNow QR
             </button>
-            <a href="whatsapp://send?text=Cuba buku log generator ni – senang jana PDF https://polilogbookgenerator.netlify.app" class="btn-whatsapp">
-                Kongsi WhatsApp
+            <a href="whatsapp://send?text=Cuba Buku Log Generator yang awesome ni! https://polilogbookgenerator.netlify.app" class="btn-whatsapp">
+                💬 Share via WhatsApp
             </a>
         </div>
     </div>
@@ -1192,17 +777,17 @@
             <div class="modal-emoji">
                 <img src="hamster-coffee.png" alt="hamster coffee" onerror="this.style.display='none'">
             </div>
-            <h2 class="modal-title">Belanja kopi</h2>
-            <p class="modal-subtitle">Suka? Boleh belanja kopi.</p>
+            <h2 class="modal-title">Buy Me a Coffee ☕</h2>
+            <p class="modal-subtitle">Suka generator ni? Sokongan awak membantu saya terus improve tool ini!</p>
             
             <div class="qr-container" onclick="openFullscreenQR()">
                 <img id="qrImage" src="duitnow-qr.png" alt="DuitNow QR" onerror="this.alt='QR Code tidak tersedia'">
             </div>
             
-            <p class="qr-hint">Scan je</p>
-            <a class="qr-link" onclick="openFullscreenQR()">Klik buat besar</a>
+            <p class="qr-hint">Scan dengan phone camera atau payment app</p>
+            <a class="qr-link" onclick="openFullscreenQR()">💡 Click QR code untuk view full size</a>
             
-            <button class="modal-close" onclick="closeDonationModal()">Tutup</button>
+            <button class="modal-close" onclick="closeDonationModal()">Close</button>
         </div>
     </div>
 
@@ -1215,21 +800,22 @@
     </div>
 
     <div class="container">
-        <h1>Poli Logbook</h1>
+        <h1>📘 POLI LOGBOOK GENERATOR</h1>
         
         <div class="info-banner">
-            <strong>Buku log → PDF</strong>
+            <strong>🧠 SMART GENERATOR SYSTEM!</strong>
+            <small>Auto-Generate LogBook into PDF format</small>
         </div>
 
         <form id="mainForm">
             <div class="row-2">
                 <div class="form-group">
                     <label>MINGGU <span class="required-mark">*</span></label>
-                    <input type="text" id="minggu" placeholder="MINGGU 1" required>
+                    <input type="text" id="minggu" placeholder="Contoh: MINGGU 1" required>
                 </div>
                 <div class="form-group">
                     <label>LOKASI <span class="required-mark">*</span></label>
-                    <input type="text" id="lokasi" placeholder="WORKSHOP" required>
+                    <input type="text" id="lokasi" placeholder="Contoh: WORKSHOP" required>
                 </div>
             </div>
 
@@ -1240,394 +826,81 @@
                 </div>
                 <div class="form-group">
                     <label>HARI <span class="required-mark">*</span></label>
-                    <input type="text" id="hari" placeholder="ISNIN" required>
+                    <input type="text" id="hari" placeholder="Contoh: ISNIN" required>
                 </div>
             </div>
 
             <div class="form-group">
                 <label>TAJUK <span class="required-mark">*</span></label>
-                <input type="text" id="tajuk" placeholder="Tajuk" required>
+                <input type="text" id="tajuk" placeholder="Tajuk aktiviti" required>
             </div>
 
             <div class="form-group">
                 <label>
                     OBJEKTIF <span class="required-mark">*</span>
-                    <span class="feature-badge">Auto no.</span>
+                    <span class="feature-badge">SMART</span>
                 </label>
-                <textarea id="objektif" rows="5" placeholder="Satu line satu point" required></textarea>
+                <textarea id="objektif" rows="5" placeholder="Auto-Generate Numbering" required></textarea>
             </div>
 
             <div class="form-group">
                 <label>
                     PERALATAN <span class="required-mark">*</span>
-                    <span class="feature-badge">Auto no.</span>
+                    <span class="feature-badge">SMART</span>
                 </label>
-                <textarea id="peralatan" rows="4" placeholder="Satu line satu point" required></textarea>
+                <textarea id="peralatan" rows="4" placeholder="Auto-Generate Numbering" required></textarea>
             </div>
 
             <div class="form-group">
                 <label>
                     PROSEDUR <span class="required-mark">*</span>
-                    <span class="feature-badge">Auto no.</span>
+                    <span class="feature-badge">SMART</span>
                 </label>
-                <textarea id="prosedur" rows="12" placeholder="Satu line satu point" required></textarea>
+                <textarea id="prosedur" rows="12" placeholder="Auto-Generate Numbering" required></textarea>
             </div>
 
             <div class="form-group">
                 <label>
                     MASALAH <span class="required-mark">*</span>
-                    <span class="feature-badge">Auto no.</span>
+                    <span class="feature-badge">SMART</span>
                 </label>
-                <textarea id="masalah" rows="4" placeholder="Satu line satu point" required></textarea>
+                <textarea id="masalah" rows="4" placeholder="Auto-Generate Numbering" required></textarea>
             </div>
 
             <div class="form-group">
                 <label>
                     PENYELESAIAN <span class="required-mark">*</span>
-                    <span class="feature-badge">Auto no.</span>
+                    <span class="feature-badge">SMART</span>
                 </label>
-                <textarea id="penyelesaian" rows="4" placeholder="Satu line satu point" required></textarea>
+                <textarea id="penyelesaian" rows="4" placeholder="Auto-Generate Numbering" required></textarea>
             </div>
 
             <div class="form-group">
                 <label>
                     KESIMPULAN <span class="required-mark">*</span>
-                    <span class="feature-badge">Auto no.</span>
+                    <span class="feature-badge">SMART</span>
                 </label>
-                <textarea id="kesimpulan" rows="5" placeholder="Satu line satu point" required></textarea>
+                <textarea id="kesimpulan" rows="5" placeholder="Auto-Generate Numbering" required></textarea>
             </div>
 
             <div class="image-drop-zone" id="dropZone">
                 <div class="drop-icon">📸</div>
-                <div class="drop-text">Letak gambar sini</div>
-                <div class="drop-subtext">JPG / PNG</div>
+                <div class="drop-text">DRAG & DROP gambar di sini</div>
+                <div class="drop-subtext">atau klik untuk pilih gambar (JPG, PNG)</div>
             </div>
             <input type="file" id="fileInput" accept="image/*" multiple>
 
             <div class="image-gallery" id="gallery"></div>
 
             <button type="submit" id="submitBtn">
-                Jana PDF & simpan
+                🚀 Generate PDF Buku Log
             </button>
-            <button type="button" id="btnSaveOnly" class="btn-save-only">
-                Simpan je (tak jana PDF)
-            </button>
-            <div id="saveChangesWrap" class="save-changes-wrap" style="display: none;">
-                <button type="button" id="btnSaveChanges" class="btn-save-changes">Simpan perubahan entri ni</button>
-            </div>
         </form>
 
         <div id="statusMsg" class="status"></div>
     </div>
 
-    </div><!-- end main-app-wrap -->
-
     <script>
-        // ========== AUTH & DATA (localStorage) ==========
-        const STORAGE_USERS = 'poli_logbook_users';
-        const STORAGE_CURRENT = 'poli_logbook_current_user';
-        const STORAGE_ENTRIES = 'poli_logbook_entries';
-
-        function getUsers() {
-            try {
-                return JSON.parse(localStorage.getItem(STORAGE_USERS) || '[]');
-            } catch (e) {
-                return [];
-            }
-        }
-
-        function saveUsers(users) {
-            localStorage.setItem(STORAGE_USERS, JSON.stringify(users));
-        }
-
-        function getCurrentUser() {
-            try {
-                return JSON.parse(localStorage.getItem(STORAGE_CURRENT) || 'null');
-            } catch (e) {
-                return null;
-            }
-        }
-
-        function setCurrentUser(user) {
-            if (user) localStorage.setItem(STORAGE_CURRENT, JSON.stringify(user));
-            else localStorage.removeItem(STORAGE_CURRENT);
-        }
-
-        function getEntries() {
-            const user = getCurrentUser();
-            if (!user) return [];
-            try {
-                const all = JSON.parse(localStorage.getItem(STORAGE_ENTRIES) || '{}');
-                return all[user.email] || [];
-            } catch (e) {
-                return [];
-            }
-        }
-
-        function saveEntry(entry) {
-            const user = getCurrentUser();
-            if (!user) return;
-            const all = JSON.parse(localStorage.getItem(STORAGE_ENTRIES) || '{}');
-            if (!all[user.email]) all[user.email] = [];
-            entry.id = Date.now();
-            entry.savedAt = new Date().toISOString();
-            all[user.email].unshift(entry);
-            localStorage.setItem(STORAGE_ENTRIES, JSON.stringify(all));
-        }
-
-        function deleteEntry(id) {
-            const user = getCurrentUser();
-            if (!user) return;
-            const all = JSON.parse(localStorage.getItem(STORAGE_ENTRIES) || '{}');
-            if (all[user.email]) {
-                all[user.email] = all[user.email].filter(e => e.id !== id);
-                localStorage.setItem(STORAGE_ENTRIES, JSON.stringify(all));
-            }
-        }
-
-        function updateEntry(id, entry) {
-            const user = getCurrentUser();
-            if (!user) return;
-            const all = JSON.parse(localStorage.getItem(STORAGE_ENTRIES) || '{}');
-            if (all[user.email]) {
-                const idx = all[user.email].findIndex(e => e.id === id);
-                if (idx !== -1) {
-                    entry.id = id;
-                    entry.savedAt = all[user.email][idx].savedAt || new Date().toISOString();
-                    all[user.email][idx] = entry;
-                    localStorage.setItem(STORAGE_ENTRIES, JSON.stringify(all));
-                }
-            }
-        }
-
-        let currentEditingId = null;
-
-        function renderAuth() {
-            const user = getCurrentUser();
-            if (user) {
-                document.getElementById('auth-screen').classList.add('hidden');
-                document.getElementById('mainApp').classList.add('active');
-                document.getElementById('currentUserName').textContent = user.name || user.email;
-                document.getElementById('currentUserEmail').textContent = user.email;
-                renderSavedEntries();
-            } else {
-                document.getElementById('auth-screen').classList.remove('hidden');
-                document.getElementById('mainApp').classList.remove('active');
-            }
-        }
-
-        function renderSavedEntries() {
-            const entries = getEntries();
-            const box = document.getElementById('savedEntriesBox');
-            const list = document.getElementById('savedEntriesList');
-            if (entries.length === 0) {
-                box.style.display = 'none';
-                return;
-            }
-            box.style.display = 'block';
-            list.innerHTML = entries.map(e => `
-                <div class="entry-card" data-id="${e.id}">
-                    <span><strong>${e.minggu || '-'}</strong> · ${e.tajuk || '-'} · ${e.tarikh || '-'}</span>
-                    <div class="entry-actions">
-                        <button type="button" class="btn-small btn-load" onclick="loadEntry(${e.id})">Edit</button>
-                        <button type="button" class="btn-small btn-pdf" onclick="generatePDFFromEntry(${e.id})">PDF</button>
-                        <button type="button" class="btn-small btn-delete" onclick="deleteEntryUI(${e.id})">Padam</button>
-                    </div>
-                </div>
-            `).join('');
-        }
-
-        function loadEntry(id) {
-            const entries = getEntries();
-            const e = entries.find(x => x.id === id);
-            if (!e) return;
-            document.getElementById('minggu').value = e.minggu || '';
-            document.getElementById('tarikh').value = e.tarikh || '';
-            document.getElementById('hari').value = e.hari || '';
-            document.getElementById('lokasi').value = e.lokasi || '';
-            document.getElementById('tajuk').value = e.tajuk || '';
-            document.getElementById('objektif').value = e.objektif || '';
-            document.getElementById('peralatan').value = e.peralatan || '';
-            document.getElementById('prosedur').value = e.prosedur || '';
-            document.getElementById('masalah').value = e.masalah || '';
-            document.getElementById('penyelesaian').value = e.penyelesaian || '';
-            document.getElementById('kesimpulan').value = e.kesimpulan || '';
-            if (e.images && e.images.length) {
-                images = e.images.slice();
-                updateGallery();
-            } else {
-                images = [];
-                updateGallery();
-            }
-            currentEditingId = id;
-            const wrap = document.getElementById('saveChangesWrap');
-            if (wrap) wrap.style.display = 'block';
-            // Auto-scroll ke form supaya user nampak entri dah diisi
-            const form = document.getElementById('mainForm');
-            if (form) {
-                form.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            }
-        }
-
-        function clearEditingState() {
-            currentEditingId = null;
-            const wrap = document.getElementById('saveChangesWrap');
-            if (wrap) wrap.style.display = 'none';
-        }
-
-        document.getElementById('btnSaveChanges').addEventListener('click', function() {
-            if (currentEditingId == null) return;
-            const data = {
-                minggu: document.getElementById('minggu').value,
-                tarikh: document.getElementById('tarikh').value,
-                hari: document.getElementById('hari').value,
-                lokasi: document.getElementById('lokasi').value,
-                tajuk: document.getElementById('tajuk').value,
-                objektif: document.getElementById('objektif').value,
-                peralatan: document.getElementById('peralatan').value,
-                prosedur: document.getElementById('prosedur').value,
-                masalah: document.getElementById('masalah').value,
-                penyelesaian: document.getElementById('penyelesaian').value,
-                kesimpulan: document.getElementById('kesimpulan').value
-            };
-            const entry = { ...data, images: images.slice() };
-            updateEntry(currentEditingId, entry);
-            clearEditingState();
-            renderSavedEntries();
-            const status = document.getElementById('statusMsg');
-            status.className = 'status success';
-            status.textContent = 'Dah simpan.';
-            status.style.display = 'block';
-            setTimeout(() => { status.style.display = 'none'; }, 2500);
-        });
-
-        async function generatePDFFromEntry(id) {
-            const entries = getEntries();
-            const e = entries.find(x => x.id === id);
-            if (!e) return;
-            const data = {
-                minggu: e.minggu, tarikh: e.tarikh, hari: e.hari, lokasi: e.lokasi,
-                tajuk: e.tajuk, objektif: e.objektif, peralatan: e.peralatan,
-                prosedur: e.prosedur, masalah: e.masalah, penyelesaian: e.penyelesaian, kesimpulan: e.kesimpulan
-            };
-            await generatePDF(data, e.images || []);
-        }
-
-        function deleteEntryUI(id) {
-            if (!confirm('Nak padam entri ni?')) return;
-            deleteEntry(id);
-            renderSavedEntries();
-        }
-
-        // Auth tabs
-        document.querySelectorAll('.auth-tab').forEach(tab => {
-            tab.addEventListener('click', function() {
-                const t = this.getAttribute('data-tab');
-                document.querySelectorAll('.auth-tab').forEach(x => x.classList.remove('active'));
-                document.querySelectorAll('.auth-form').forEach(x => x.classList.remove('active'));
-                this.classList.add('active');
-                document.getElementById(t === 'login' ? 'loginForm' : 'registerForm').classList.add('active');
-            });
-        });
-
-        document.getElementById('loginForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            const email = document.getElementById('loginEmail').value.trim();
-            const password = document.getElementById('loginPassword').value;
-            const users = getUsers();
-            const user = users.find(u => u.email.toLowerCase() === email.toLowerCase() && u.password === password);
-            if (!user) {
-                alert('Emel / password salah.');
-                return;
-            }
-            setCurrentUser({ email: user.email, name: user.name });
-            renderAuth();
-        });
-
-        document.getElementById('registerForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            const name = document.getElementById('registerName').value.trim();
-            const email = document.getElementById('registerEmail').value.trim();
-            const password = document.getElementById('registerPassword').value;
-            if (password.length < 6) {
-                alert('Min 6 huruf.');
-                return;
-            }
-            const users = getUsers();
-            if (users.some(u => u.email.toLowerCase() === email.toLowerCase())) {
-                alert('Dah ada. Log masuk je.');
-                return;
-            }
-            users.push({ email, name, password });
-            saveUsers(users);
-            setCurrentUser({ email, name });
-            renderAuth();
-        });
-
-        document.getElementById('btnLogout').addEventListener('click', function() {
-            setCurrentUser(null);
-            renderAuth();
-        });
-
-        // Lupa kata laluan
-        document.getElementById('linkForgotPassword').addEventListener('click', function(e) {
-            e.preventDefault();
-            document.getElementById('forgotPasswordModal').classList.add('active');
-        });
-
-        function closeForgotModal() {
-            document.getElementById('forgotPasswordModal').classList.remove('active');
-        }
-
-        document.getElementById('forgotPasswordForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            const email = document.getElementById('forgotEmail').value.trim();
-            const newPass = document.getElementById('forgotNewPassword').value;
-            const confirmPass = document.getElementById('forgotConfirmPassword').value;
-            if (newPass !== confirmPass) {
-                alert('Password tak sama.');
-                return;
-            }
-            if (newPass.length < 6) {
-                alert('Min 6 huruf.');
-                return;
-            }
-            const users = getUsers();
-            const idx = users.findIndex(u => u.email.toLowerCase() === email.toLowerCase());
-            if (idx === -1) {
-                alert('Tak jumpa. Daftar dulu.');
-                return;
-            }
-            users[idx].password = newPass;
-            saveUsers(users);
-            alert('Dah tukar. Log masuk balik.');
-            closeForgotModal();
-            this.reset();
-        });
-
-        // Buku log penuh (1 PDF semua entri)
-        document.getElementById('btnFullBook').addEventListener('click', async function() {
-            const entries = getEntries();
-            if (entries.length === 0) {
-                alert('Tak ada entri lagi.');
-                return;
-            }
-            this.disabled = true;
-            this.textContent = 'Jana PDF...';
-            try {
-                await generatePDFBookByWeek(entries);
-                alert('Dah download.');
-            } catch (err) {
-                console.error(err);
-                alert('Error: ' + err.message);
-            }
-            this.disabled = false;
-            this.textContent = 'Laporan bulanan satu PDF';
-        });
-
-        // Show/hide app based on login
-        renderAuth();
-
         // Modal functions
         function openDonationModal() {
             document.getElementById('donationModal').classList.add('active');
@@ -1712,7 +985,7 @@
                     };
                     reader.readAsDataURL(file);
                 } else {
-                    alert('Gambar je. JPG/PNG.');
+                    alert('Sila pilih fail imej sahaja (JPG, PNG)');
                 }
             });
         }
@@ -1735,47 +1008,14 @@
             updateGallery();
         }
 
-        function validateLogbookForm() {
-            const fields = [
-                { id: 'minggu', label: 'MINGGU' },
-                { id: 'lokasi', label: 'LOKASI' },
-                { id: 'tarikh', label: 'TARIKH' },
-                { id: 'hari', label: 'HARI' },
-                { id: 'tajuk', label: 'TAJUK' },
-                { id: 'objektif', label: 'OBJEKTIF' },
-                { id: 'peralatan', label: 'PERALATAN' },
-                { id: 'prosedur', label: 'PROSEDUR' },
-                { id: 'masalah', label: 'MASALAH' },
-                { id: 'penyelesaian', label: 'PENYELESAIAN' },
-                { id: 'kesimpulan', label: 'KESIMPULAN' }
-            ];
-            const empty = [];
-            for (let i = 0; i < fields.length; i++) {
-                const el = document.getElementById(fields[i].id);
-                const val = el ? (el.value || '').trim() : '';
-                if (!val) empty.push(fields[i].label);
-            }
-            if (empty.length > 0) {
-                return { ok: false, message: 'Isi: ' + empty.join(', ') };
-            }
-            return { ok: true };
-        }
-
         document.getElementById('mainForm').addEventListener('submit', async function(e) {
             e.preventDefault();
 
-            const status = document.getElementById('statusMsg');
-            const valid = validateLogbookForm();
-            if (!valid.ok) {
-                status.className = 'status error';
-                status.textContent = valid.message;
-                status.style.display = 'block';
-                return;
-            }
-
             const btn = document.getElementById('submitBtn');
+            const status = document.getElementById('statusMsg');
+            
             btn.disabled = true;
-            btn.innerHTML = '<span class="spinner"></span>Jana PDF...';
+            btn.innerHTML = '<span class="spinner"></span>Sedang menjana PDF...';
             status.style.display = 'none';
 
             try {
@@ -1795,26 +1035,16 @@
 
                 await generatePDF(data, images);
 
-                // Simpan entri ke localStorage (dengan gambar)
-                const entry = { ...data, images: images.slice() };
-                if (currentEditingId != null) {
-                    updateEntry(currentEditingId, entry);
-                    clearEditingState();
-                } else {
-                    saveEntry(entry);
-                }
-                renderSavedEntries();
-
                 status.className = 'status success';
-                status.textContent = 'Dah siap.';
+                status.textContent = '✅ PDF BERJAYA DIJANA!';
                 status.style.display = 'block';
 
                 setTimeout(() => {
-                    if (confirm('Nak kosongkan form?')) {
+                    if (confirm('PDF berjaya dimuat turun! Reset form untuk entry baru?')) {
                         this.reset();
                         images = [];
                         updateGallery();
-                        clearEditingState();
+                        
                         const today = new Date();
                         const year = today.getFullYear();
                         const month = String(today.getMonth() + 1).padStart(2, '0');
@@ -1828,69 +1058,23 @@
             } catch (err) {
                 console.error('Error:', err);
                 status.className = 'status error';
-                status.textContent = err.message;
+                status.textContent = '❌ RALAT: ' + err.message;
                 status.style.display = 'block';
             } finally {
                 btn.disabled = false;
-                btn.innerHTML = 'Jana PDF & simpan';
+                btn.innerHTML = '🚀 Generate PDF Buku Log';
             }
         });
 
-        // Simpan sahaja (tanpa PDF) - simpan sebagai entri baru atau kemas kini jika sedang edit
-        document.getElementById('btnSaveOnly').addEventListener('click', function() {
-            const valid = validateLogbookForm();
-            if (!valid.ok) {
-                const status = document.getElementById('statusMsg');
-                status.className = 'status error';
-                status.textContent = valid.message;
-                status.style.display = 'block';
-                return;
-            }
-            const data = {
-                minggu: document.getElementById('minggu').value,
-                tarikh: document.getElementById('tarikh').value,
-                hari: document.getElementById('hari').value,
-                lokasi: document.getElementById('lokasi').value,
-                tajuk: document.getElementById('tajuk').value,
-                objektif: document.getElementById('objektif').value,
-                peralatan: document.getElementById('peralatan').value,
-                prosedur: document.getElementById('prosedur').value,
-                masalah: document.getElementById('masalah').value,
-                penyelesaian: document.getElementById('penyelesaian').value,
-                kesimpulan: document.getElementById('kesimpulan').value
-            };
-            const entry = { ...data, images: images.slice() };
-            if (currentEditingId != null) {
-                updateEntry(currentEditingId, entry);
-                clearEditingState();
-            } else {
-                saveEntry(entry);
-            }
-            renderSavedEntries();
-            const status = document.getElementById('statusMsg');
-            status.className = 'status success';
-            status.textContent = 'Dah simpan.';
-            status.style.display = 'block';
-            setTimeout(() => { status.style.display = 'none'; }, 2000);
-        });
-
-        async function generatePDF(data, imgs, opts) {
-            if (!window.jspdf || !window.jspdf.jsPDF) {
-                throw new Error('PDF tak boleh load. Check internet dan refresh page.');
-            }
+        async function generatePDF(data, imgs) {
             const { jsPDF } = window.jspdf;
-            const isAppend = opts && opts.doc;
-            const doc = isAppend ? opts.doc : new jsPDF('p', 'mm', 'a4');
+            const doc = new jsPDF('p', 'mm', 'a4');
 
             const W = 210;
             const H = 297;
             const M = 20;
             const CW = W - (M * 2);
             let Y = M;
-
-            if (isAppend && opts.startNewPage) {
-                doc.addPage();
-            }
 
             const dateObj = new Date(data.tarikh + 'T00:00:00');
             const formattedDate = dateObj.toLocaleDateString('ms-MY', {
@@ -2126,120 +1310,7 @@
             }
 
             const filename = `Buku_Log_${data.minggu.replace(/\s+/g, '_')}.pdf`;
-            if (!isAppend) doc.save(filename);
-        }
-
-        function addRefleksiPage(doc, mingguLabel) {
-            const W = 210, H = 297, M = 20, CW = W - M * 2;
-            doc.addPage();
-            let Y = M;
-
-            doc.setFontSize(14);
-            doc.setFont(undefined, 'bold');
-            doc.text('REFLEKSI MINGGUAN PELAJAR', W / 2, Y, { align: 'center' });
-            Y += 10;
-
-            doc.setFontSize(10);
-            doc.setFont(undefined, 'normal');
-            doc.text('Tarikh: ' + (mingguLabel || 'Minggu: __________'), M, Y);
-            Y += 12;
-
-            // UNTUK DIISI OLEH PELAJAR
-            doc.setFillColor(0, 0, 0);
-            doc.rect(M, Y, CW, 7, 'F');
-            doc.setTextColor(255, 255, 255);
-            doc.setFont(undefined, 'bold');
-            doc.text('UNTUK DIISI OLEH PELAJAR', M + 2, Y + 5);
-            Y += 10;
-
-            const pelajarLabels = [
-                'Aktiviti mingguan yang dijalankan (secara ringkas)',
-                'Pengetahuan / kemahiran yang diperolehi (sepanjang minggu)',
-                'Impak dan kesan pada pelajar'
-            ];
-            for (let i = 0; i < pelajarLabels.length; i++) {
-                doc.setFont(undefined, 'normal');
-                doc.setTextColor(0, 0, 0);
-                doc.setFontSize(9);
-                doc.text(pelajarLabels[i], M, Y + 4);
-                Y += 6;
-                doc.setDrawColor(0, 0, 0);
-                doc.rect(M, Y, CW, 22);
-                Y += 25;
-            }
-
-            Y += 5;
-
-            // UNTUK DIISI OLEH INDUSTRI
-            doc.setFillColor(0, 0, 0);
-            doc.rect(M, Y, CW, 7, 'F');
-            doc.setTextColor(255, 255, 255);
-            doc.setFont(undefined, 'bold');
-            doc.text('UNTUK DIISI OLEH INDUSTRI', M + 2, Y + 5);
-            Y += 10;
-
-            doc.setFont(undefined, 'normal');
-            doc.setTextColor(0, 0, 0);
-            doc.setFontSize(9);
-            doc.text('Komen/cadangan dari penyelia industri', M, Y + 4);
-            Y += 6;
-            doc.setDrawColor(0, 0, 0);
-            doc.rect(M, Y, CW, 28);
-            Y += 32;
-
-            doc.setFontSize(9);
-            doc.text('(Tandatangan dan cop)  Tarikh: _________________', M, Y + 5);
-        }
-
-        // Kumpulkan entri ikut minggu (Minggu 1, Minggu 2, ...)
-        function groupEntriesByWeek(entries) {
-            const groups = {};
-            entries.forEach(e => {
-                const m = (e.minggu || '').trim();
-                const numMatch = m.match(/\d+/);
-                const key = numMatch ? 'M' + parseInt(numMatch[0], 10) : 'Lain';
-                if (!groups[key]) groups[key] = [];
-                groups[key].push(e);
-            });
-            const keys = Object.keys(groups);
-            keys.sort((a, b) => {
-                if (a === 'Lain') return 1;
-                if (b === 'Lain') return -1;
-                return parseInt(a.slice(1), 10) - parseInt(b.slice(1), 10);
-            });
-            return keys.map(k => ({
-                key: k,
-                label: k === 'Lain' ? 'Lain' : 'MINGGU ' + k.slice(1),
-                entries: groups[k]
-            }));
-        }
-
-        async function generatePDFBookByWeek(entries) {
-            if (entries.length === 0) return;
-            const { jsPDF } = window.jspdf;
-            const byWeek = groupEntriesByWeek(entries);
-            const doc = new jsPDF('p', 'mm', 'a4');
-            let firstPage = true;
-            for (let w = 0; w < byWeek.length; w++) {
-                const { label, entries: weekEntries } = byWeek[w];
-                for (let i = 0; i < weekEntries.length; i++) {
-                    const e = weekEntries[i];
-                    const data = {
-                        minggu: e.minggu, tarikh: e.tarikh, hari: e.hari, lokasi: e.lokasi,
-                        tajuk: e.tajuk, objektif: e.objektif, peralatan: e.peralatan,
-                        prosedur: e.prosedur, masalah: e.masalah, penyelesaian: e.penyelesaian, kesimpulan: e.kesimpulan
-                    };
-                    await generatePDF(data, e.images || [], { doc, startNewPage: !firstPage });
-                    firstPage = false;
-                }
-                addRefleksiPage(doc, label);
-            }
-            const firstDate = entries[0] && entries[0].tarikh;
-            const monthYear = firstDate ? (function() {
-                const d = new Date(firstDate + 'T00:00:00');
-                return d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0');
-            }()) : '';
-            doc.save(monthYear ? 'Laporan_Bulanan_' + monthYear + '.pdf' : 'Laporan_Bulanan.pdf');
+            doc.save(filename);
         }
     </script>
 </body>
